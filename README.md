@@ -21,7 +21,7 @@ Key_Chords = [0,7,5,9]
 Key_Chords = [C,G,F,A]
 
 If Key_select = D [2]
-Key_Chords = [0+2,7+2,5+2,9+2] etc
+Key_Chords = [(0+2),(7+2),(5+2),(9+2)] etc
 Key_Chords = [D,A,G,B]
 
 # Random Chord Progression
