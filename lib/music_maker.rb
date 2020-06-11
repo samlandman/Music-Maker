@@ -1,5 +1,10 @@
 tones = [1..12]
 
-key = 0
+class Key
+    def initialize(key) #user sets a new key
+        @key = key
+    end
 
-key_tone=tones[key]
+end
+
+#key_tone=tones[@key]
