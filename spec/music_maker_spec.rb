@@ -7,4 +7,10 @@ describe Key do
             expect(new_key).to be_an_instance_of Key
         end
     end
+    describe 'position' do
+        it 'finds the position of key in tones' do
+            new_key = Key.new('C')
+            expect(new_key.position).to eq 0
+        end
+    end
 end
