@@ -1,11 +1,29 @@
-@tones = ['C','C#','D','D','E','F','F','G','G','A','A','B']
+@@tones = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
 
 class Key
-    def initialize(key) #user sets a new key
-        puts @tones
-        @key = key
-        #@position = @tones.index(@key)
+    attr_accessor :key, :tonic, :tonic_index, :dominant, :subdominant, :supertonic, :relative_minor, :chordcollection
+    
+    def initialize(key = 'C') #user sets a new key, defaults to C if no key inputted
+        @@key = key
+        @tonic_index = @@tones.index(@@key)
+        @chordcollection = [
+            @tonic = @@tones[@tonic_index],
+            @dominant = @@tones[@tonic_index - 5],
+            @subdominant = @@tones[@tonic_index - 7],
+            @supertonic = @@tones[@tonic_index - 10],
+            @relative_minor = @@tones[@tonic_index - 3]
+        ]
     end
 end
 
-#key_tone=tones[@key]
+class Song
+    attr_reader :chord_progression
+
+    def initialize (new_key = Key.new)
+        @key = new_key
+    end
+
+    def chord_progression #creates a new chord progression
+        @chord_progression = @key.chordcollection.sort_by { rand }[0..3]
+    end
+end
