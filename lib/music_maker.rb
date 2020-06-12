@@ -17,7 +17,7 @@ class Key
 end
 
 class Song
-    attr_reader :chord_progression
+    attr_reader :chord_progression, :chorus
 
     def initialize (new_key = Key.new)
         @key = new_key
@@ -25,5 +25,13 @@ class Song
 
     def chord_progression #creates a new chord progression
         @chord_progression = @key.chordcollection.sort_by { rand }[0..3]
+    end
+
+    def chorus
+        @chorus = [@key.chordcollection[0],@key.chordcollection[1],@key.chordcollection.sample,@key.chordcollection.sample].sort_by {rand}
+    end
+
+    def verse
+        @verse = chord_progression
     end
 end
